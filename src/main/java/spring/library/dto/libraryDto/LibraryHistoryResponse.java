@@ -6,7 +6,7 @@ import spring.library.domain.Library;
 
 @Data
 
-public class LibararyReturnResponse {
+public class LibraryHistoryResponse {
 
     private long bookId;
     private String title;
@@ -16,7 +16,14 @@ public class LibararyReturnResponse {
     private long renewalCount;
     private boolean returned;
 
-    public static LibararyReturnResponse from(Library library) {
-        return LibararyResponse
+    public static LibraryResponse from(Library library) {
+        return LibraryResponse.builder()
+                .bookId(library.getBook().getId())
+                .title(library.getBook().getTitle())
+                .author(library.getBook().getAuthor())
+                .loanDate(library.getLoanDate())
+                .dueDate(library.getDueDate())
+                .renewalCount(library.getRenewalCount())
+                .build();
     }
 }

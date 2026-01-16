@@ -8,7 +8,7 @@ import spring.library.domain.Library;
 @Data
 @Builder
 
-public class LibararyResponse {
+public class LibraryResponse {
     private Long id;
 
     private Long bookId;
@@ -24,7 +24,7 @@ public class LibararyResponse {
     private long renewalCount;
 
 
-    private static LibararyResponse libararyResponseFrom(Library library) {
+    public static LibraryResponse libararyResponseFrom(Library library) {
         return builder()
                 .id(library.getId())
                 .bookId(library.getBook().getId())
